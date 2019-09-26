@@ -68,5 +68,23 @@ public class YudiHandler {
             vetor[i] = (isNumeric(valor) && !vetor.getClass().getName().contains("String")) ? Integer.parseInt(valor) : valor;
         }
     }
+
+    public static Integer somaImparesLinha(Integer[][]matriz, Integer indexLinha) {
+        int total = 0;
+        for (int coluna = 0; coluna < matriz[0].length; coluna++) {
+            if (matriz[indexLinha][coluna] % 2 != 0)
+                total += matriz[indexLinha][coluna];
+        }
+        return total;
+    }
+
+    public static Integer contaParesColuna(Integer[][]matriz, Integer indexColuna) {
+        int total = 0;
+        for (int linha = 0; linha < matriz[0].length; linha++) {
+            if (matriz[linha][indexColuna] % 2 == 0)
+                total++;
+        }
+        return total;
+    }
 }
 
