@@ -1,10 +1,8 @@
-import com.sun.deploy.util.StringUtils;
-
 import java.util.Scanner;
 
-public class MatrizHandler {
+public class YudiHandler {
 
-    static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     private static boolean isNumeric(String strNum) {
         try {
@@ -55,4 +53,20 @@ public class MatrizHandler {
             System.out.println();
         }
     }
+
+    public static void exibirMatriz(Object[][] matriz, int indexLinha) {
+        for (int coluna = 0; coluna < matriz[0].length; coluna++) {
+            System.out.print(matriz[indexLinha][coluna] + "\t");
+        }
+        System.out.println();
+    }
+
+    public static void preencherVetor(Object[] vetor) {
+        for (int i = 0; i < vetor.length; i++) {
+            System.out.println(String.format("Digite o valor vetor[%s]", i));
+            String valor = scanner.nextLine();
+            vetor[i] = (isNumeric(valor) && !vetor.getClass().getName().contains("String")) ? Integer.parseInt(valor) : valor;
+        }
+    }
 }
+
